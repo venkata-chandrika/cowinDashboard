@@ -17,10 +17,9 @@ import {
 
 import VaccinationCoverage from '../VaccinationCoverage'
 
-import VaccinationByAge from '../VaccinationByAge'
-
 import VaccinationByGender from '../VaccinationByGender'
 
+import VaccinationByAge from '../VaccinationByAge'
 import './index.css'
 
 const apiStatusView = {
@@ -115,8 +114,20 @@ class CoWinDashboard extends Component {
                 padding: 30,
               }}
             />
-            <Bar dataKey="dose1" name="Dose 1" fill="#5a8dee" barSize="20%" />
-            <Bar dataKey="dose2" name="Dose 2" fill="#f54394" barSize="20%" />
+            <Bar
+              dataKey="dose1"
+              name="Dose 1"
+              radius={[10, 10, 0, 0]}
+              fill="#5a8dee"
+              barSize="20%"
+            />
+            <Bar
+              dataKey="dose2"
+              name="Dose 2"
+              radius={[5, 5, 0, 0]}
+              fill="#f54394"
+              barSize="20%"
+            />
           </BarChart>
         </VaccinationCoverage>
         <VaccinationByGender>
@@ -124,13 +135,13 @@ class CoWinDashboard extends Component {
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
-                cx="70%"
-                cy="40%"
+                cx="50%"
+                cy="50%"
                 data={vaccinationByGender}
                 startAngle={180}
                 endAngle={0}
-                innerRadius="40%"
-                outerRadius="70%"
+                innerRadius="50%"
+                outerRadius="80%"
                 dataKey="count"
               >
                 <Cell name="Male" fill="#f54394" />
@@ -140,7 +151,7 @@ class CoWinDashboard extends Component {
               <Legend
                 iconType="circle"
                 layout="horizontal"
-                verticalAlign="middle"
+                verticalAlign="bottom"
                 align="center"
               />
             </PieChart>
@@ -148,28 +159,30 @@ class CoWinDashboard extends Component {
         </VaccinationByGender>
         <VaccinationByAge>
           <h1 className="heading">Vaccination by Age</h1>
-          <PieChart>
-            <Pie
-              cx="70%"
-              cy="40%"
-              data={vaccinationByAge}
-              startAngle={0}
-              endAngle={360}
-              innerRadius="0%"
-              outerRadius="70%"
-              dataKey="count"
-            >
-              <Cell name="18-44" fill=" #2d87bb" />
-              <Cell name="45-60" fill="#a3df9f" />
-              <Cell name="Above 60" fill=" #64c2a6" />
-            </Pie>
-            <Legend
-              iconType="circle"
-              layout="horizontal"
-              verticalAlign="bottom"
-              align="center"
-            />
-          </PieChart>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                cx="50%"
+                cy="50%"
+                data={vaccinationByAge}
+                startAngle={0}
+                endAngle={360}
+                innerRadius="0%"
+                outerRadius="70%"
+                dataKey="count"
+              >
+                <Cell name="18-44" fill="#2d87bb" />
+                <Cell name="45-60" fill="#a3df9f" />
+                <Cell name="Above 60" fill="#64c2a6" />
+              </Pie>
+              <Legend
+                iconType="circle"
+                layout="horizontal"
+                verticalAlign="bottom"
+                align="center"
+              />
+            </PieChart>
+          </ResponsiveContainer>
         </VaccinationByAge>
       </>
     )

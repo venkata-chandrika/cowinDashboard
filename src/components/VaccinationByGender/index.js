@@ -1,4 +1,5 @@
 // Write your code here
+import './index.css'
 
 const VaccinationByGender = props => {
   const {children} = props
