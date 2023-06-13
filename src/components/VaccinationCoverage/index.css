@@ -1,0 +1,18 @@
+/* Write your CSS here */
+.vaccine-container {
+  border-radius: 10px;
+  border-style: none;
+  background-color: #1c1c2b;
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh;
+  width: 80%;
+  margin-top: 20px;
+}
+.heading {
+  color: #cbd5e1;
+  text-align: start;
+  font-weight: 400;
+  padding-left: 30px;
+  font-size: 20px;
+}
